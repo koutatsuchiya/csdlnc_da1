@@ -42,10 +42,13 @@ namespace demo
         {
             ContextDB context = new ContextDB();
             HoaDon hoaDon = new HoaDon();
-            hoaDon.MaHD = txtID.Text;
-            hoaDon.MaKH = txtName.Text;
+            hoaDon.MaHD = Int32.Parse(txtID.Text);
+            hoaDon.MaKH = Int32.Parse(txtName.Text);
             hoaDon.NgayLap = dtmDate.Value;
-            hoaDon.TongTien = Convert.ToInt32(txtCost.Text);
+            if (txtCost.Text.CompareTo("") != 0)
+                hoaDon.TongTien = Int32.Parse(txtCost.Text);
+            else
+                hoaDon.TongTien = 0;
             context.HoaDons.Add(hoaDon);
             context.SaveChanges();
             List<HoaDon> hoaDons = context.HoaDons.ToList();
