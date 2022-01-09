@@ -1,4 +1,4 @@
-namespace demo.Models
+namespace demo
 {
     using System;
     using System.Collections.Generic;
@@ -10,13 +10,13 @@ namespace demo.Models
     {
         [Key]
         [Column(Order = 0)]
-        [StringLength(5)]
-        public string MaHD { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MaHD { get; set; }
 
         [Key]
         [Column(Order = 1)]
-        [StringLength(5)]
-        public string MaSP { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MaSP { get; set; }
 
         public int? SoLuong { get; set; }
 

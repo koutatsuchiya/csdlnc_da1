@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace demo.Models
+namespace demo
 {
     public partial class ContextDB : DbContext
     {
@@ -19,77 +19,14 @@ namespace demo.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CT_HoaDon>()
-                .Property(e => e.MaHD)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<CT_HoaDon>()
-                .Property(e => e.MaSP)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<HoaDon>()
-                .Property(e => e.MaHD)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<HoaDon>()
-                .Property(e => e.MaKH)
-                .IsFixedLength()
-                .IsUnicode(false);
-
             modelBuilder.Entity<HoaDon>()
                 .HasMany(e => e.CT_HoaDon)
                 .WithRequired(e => e.HoaDon)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KhachHang>()
-                .Property(e => e.MaKH)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<KhachHang>()
-                .Property(e => e.Ho)
-                .IsFixedLength();
-
-            modelBuilder.Entity<KhachHang>()
-                .Property(e => e.Ten)
-                .IsFixedLength();
-
-            modelBuilder.Entity<KhachHang>()
-                .Property(e => e.Duong)
-                .IsFixedLength();
-
-            modelBuilder.Entity<KhachHang>()
-                .Property(e => e.Phuong)
-                .IsFixedLength();
-
-            modelBuilder.Entity<KhachHang>()
-                .Property(e => e.Quan)
-                .IsFixedLength();
-
-            modelBuilder.Entity<KhachHang>()
-                .Property(e => e.Tpho)
-                .IsFixedLength();
-
-            modelBuilder.Entity<KhachHang>()
                 .Property(e => e.DienThoai)
                 .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<SanPham>()
-                .Property(e => e.MaSP)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<SanPham>()
-                .Property(e => e.TenSP)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<SanPham>()
-                .Property(e => e.Mota)
                 .IsUnicode(false);
 
             modelBuilder.Entity<SanPham>()

@@ -1,4 +1,4 @@
-namespace demo.Models
+namespace demo
 {
     using System;
     using System.Collections.Generic;
@@ -16,11 +16,10 @@ namespace demo.Models
         }
 
         [Key]
-        [StringLength(5)]
-        public string MaHD { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MaHD { get; set; }
 
-        [StringLength(5)]
-        public string MaKH { get; set; }
+        public int? MaKH { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? NgayLap { get; set; }
